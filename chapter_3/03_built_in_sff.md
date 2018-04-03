@@ -112,3 +112,143 @@ In [1]: tup = (1, 2, 3, 4, 5, 5, 5)
 In [2]: tup.count(5)
 Out[2]: 3
 ```
+
+### List
+
+Lists are also sequences of Python objects, but they are variable-length and can be modified in-place. They can be defined with `[]` or `list()`:
+
+```python
+In [1]: lst_a = [1, 2, 3]
+
+In [2]: lst_b = list(1, 2, 3)
+```
+
+Lists and tuples are semantically similar and can be interchanged in many functions. The `list()` function is used frequently to create an iterator:
+
+```python
+In [1]: gen = range(10)
+
+In [2]: gen
+Out[2]: range(0, 10)
+
+In [3]: list(gen)
+Out[3]: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+```
+
+#### Adding and removing elements
+
+The `append()` method can be used to add elements to the end of a list:
+
+```python
+In [1]: lst = ['a', 'b', 'c']
+
+In [2]: lst.append('d')
+Out[2]: ['a', 'b', 'c', 'd']
+```
+
+The `insert()` method can be used to insert an element in a particular position of a list:
+
+```python
+In [1]: lst = ['a', 'c', 'd']
+
+In [2]: lst.insert(1, 'b')
+Out[2]: ['a', 'b', 'c', 'd']
+```
+
+Note that `insert()` is computationally expensive. The `pop` method removies and returns an element at a particular index:
+
+```python
+In [1]: lst = ['a', 'b', 'c', 'd']
+
+In [2]: lst.pop(1)
+Out[2]: 'b'
+
+In [3]: lst
+Out[3]: ['a', 'c', 'd']
+```
+
+Elements of a list can be removed with `remove()`. Note that only the first such value is removed.
+
+```python
+In [1]: lst = ['a', 'b', 'c', 'b']
+
+In [2]: lst.remove('b')
+
+In [3]: lst
+Out[3]: ['a', 'c', 'b']
+```
+
+You can check if a list contains a value using `in`:
+
+```python
+In [1]: lst = ['a', 'b', 'c']
+
+In [2]: 'a' in lst
+Out[2]: True
+
+In [3]: 'a' not in lst
+Out[3]: False
+```
+
+Note that `in` is slow with lists relative to dicts and sets which will be introduced soon.
+
+#### Combining and concatenating lists
+
+Lists can be concatenated with `+` operator. The `extend()` method can be used to append multiple elements at once:
+
+```python
+In [1]: lst = ['a', 'b', 'c']
+
+In [2]: lst.extend(['d', 'e'])
+
+In [3]: lst
+Out[3]: ['a', 'b', 'c', 'd', 'e']
+```
+
+Note that `append` and `extend` are usually faster than `+` because they are modifying the list in place rather than copying the previous list over. This is similar to R. It's the idea that `list = list + a` is going to be slow.
+
+#### Sorting
+
+The `sort()` method can be used to sort a list in place:
+
+```python
+In [1]: lst = [1, 3, 2]
+
+In [2]: lst.sort()
+
+In [3]: lst
+Out[3]: [1, 2, 3]
+```
+
+Note that you can also use the `key` argument in `sort()` to sort the elements by a function that produces a valye to sort the objects.
+
+#### Binary search and maintaining a sorted list
+
+The `bisect` module implements a binary search to insert into a sorted list. `bisect.bisect` identifies the location where an element whould be inserted to keep it sorted, while `bisect.insort` actually inserts the element.
+
+```python
+In [1]: import bisect
+
+In [2]: lst = [1, 2, 3, 4, 5, 7]
+
+In [3]: bisect.bisect(lst, 2)
+Out[3]: 2
+
+In [4]: bisect.insort(lst, 2)
+
+In [5]: lst
+Out[5]: [1, 2, 2, 3, 4, 5, 7]
+```
+
+#### Slicing
+
+Most sequence types can be subsetted using "slicing" notation. For example:
+
+```python
+In [1]: lst = ['a', 'b', 'c', 'd', 'e']
+
+In [2]: lst[2:3]
+Out[3]: ['c', 'd']
+```
+
+Note that while the first element of the slice notation in included, the second is excluded. This is different than R. If one of the numbers is omitted, the first element or last element of the sequence is then included. Negative indices slice the sequence relative to the end of the sequence.
