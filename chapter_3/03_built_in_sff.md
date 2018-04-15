@@ -247,7 +247,7 @@ Most sequence types can be subsetted using "slicing" notation. For example:
 ```python
 In [1]: lst = ['a', 'b', 'c', 'd', 'e']
 
-In [2]: lst[2:3]
+In [2]: lst[2:4]
 Out[3]: ['c', 'd']
 ```
 
