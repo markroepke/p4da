@@ -205,7 +205,7 @@ In [3]: lst
 Out[3]: ['a', 'b', 'c', 'd', 'e']
 ```
 
-Note that `append` and `extend` are usually faster than `+` because they are modifying the list in place rather than copying the previous list over. This is similar to R. It's the idea that `list = list + a` is going to be slow.
+Note that `append` and `extend` are usually faster than `+` because they are modifying the list in place rather than copying the previous list over. This is similar to R. It is the idea that `list = list + a` is going to be slow.
 
 #### Sorting
 
@@ -306,7 +306,7 @@ Out[1]: [2, 1, 0]
 
 ### dict
 
-`dict` is the most important built-in data structure. Within programming, it's more commonly known as a *hash map* or *associative array*. A `dict` is flexible-in-size, meaning it can be mutated, collection of key-value pairs. A common way of creating a `dict` is the use of curly braces and colons.
+`dict` is the most important built-in data structure. Within programming, it is more commonly known as a *hash map* or *associative array*. A `dict` is flexible-in-size, meaning it can be mutated, collection of key-value pairs. A common way of creating a `dict` is the use of curly braces and colons.
 
 ```python
 In [1]: dict_1 = {'a' : 'apple', 'b' : 'banana', 'c' = 'clementine'}
@@ -345,7 +345,7 @@ In [1]: del dict_1['b']
 In [2]: dict_1.pop['a']
 ```
 
-The `keys` and `values` methods gives iterators of the `dict`'s keys and values:
+The `keys` and `values` methods gives iterators of the `dict` keys and values:
 
 ```python
 In [1]: list(dict_1.keys())
@@ -375,7 +375,7 @@ Out[2]: {0: 5, 1: 4, 2: 3, 3: 2, 4: 1, 5: 0}
 
 A `set` is an unordered collection of unique elements. `sets` can be created using the `set()` function or via *set literal* with curly braces:
 
-```{python}
+```python
 In [1]: set_1 = set([1, 2, 3])
 
 In [2]: set_2 = {1, 2, 3}
